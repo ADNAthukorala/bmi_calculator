@@ -56,7 +56,6 @@ class _ResultScreenState extends State<ResultScreen> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             /// Gender, Age panel
             Container(
