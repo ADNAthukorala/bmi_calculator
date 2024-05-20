@@ -86,6 +86,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                           userBMIValue: userBMIValue,
                           userAge: userAge,
                           userGender: userGender,
+                          userHeight: userHeight,
+                          userWeight: userWeight,
                         ),
                       ));
                 },

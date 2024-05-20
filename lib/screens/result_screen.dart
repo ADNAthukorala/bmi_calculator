@@ -7,11 +7,15 @@ class ResultScreen extends StatefulWidget {
       {super.key,
       required this.userBMIValue,
       required this.userGender,
-      required this.userAge});
+      required this.userAge,
+      required this.userHeight,
+      required this.userWeight});
 
   final double userBMIValue;
   final String userGender;
   final int userAge;
+  final int userHeight;
+  final int userWeight;
 
   @override
   State<ResultScreen> createState() => _ResultScreenState();
@@ -74,6 +78,18 @@ class _ResultScreenState extends State<ResultScreen> {
                     ),
 
                     /// User age
+                    Text(
+                      'Age: ${widget.userAge}',
+                      style: kLabelTextStyle,
+                    ),
+
+                    /// User height
+                    Text(
+                      'Age: ${widget.userAge}',
+                      style: kLabelTextStyle,
+                    ),
+
+                    /// User weight
                     Text(
                       'Age: ${widget.userAge}',
                       style: kLabelTextStyle,
