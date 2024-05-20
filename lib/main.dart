@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/screens/calculator_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +14,34 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BMI Calculator',
       theme: ThemeData(
-        appBarTheme: AppBarTheme(backgroundColor: Colors.green),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        /// Appbar theme
+        appBarTheme: const AppBarTheme(
+          backgroundColor: kBackgroundColor,
+          foregroundColor: kWhiteThemeColor,
+          elevation: 4,
+          shadowColor: kBlackThemeColor,
+        ),
+
+        /// Icon button theme
+        iconButtonTheme: const IconButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: WidgetStatePropertyAll(kActiveCardColor),
+            foregroundColor: WidgetStatePropertyAll(kWhiteThemeColor),
+          ),
+        ),
+
+        /// Elevated button theme
+        elevatedButtonTheme: const ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: WidgetStatePropertyAll(kActiveCardColor),
+            foregroundColor: WidgetStatePropertyAll(kWhiteThemeColor),
+            textStyle: WidgetStatePropertyAll(kLabelTextStyle),
+          ),
+        ),
+
+        /// Body background color
+        scaffoldBackgroundColor: kBackgroundColor,
+        colorScheme: ColorScheme.fromSeed(seedColor: kBackgroundColor),
         useMaterial3: true,
       ),
       home: const CalculatorScreen(),
