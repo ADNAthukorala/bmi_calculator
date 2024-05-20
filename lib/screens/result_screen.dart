@@ -61,8 +61,9 @@ class _ResultScreenState extends State<ResultScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            /// Gender, Age panel
+            /// Gender, Age, Height, Weight panel
             Container(
+              width: double.maxFinite,
               decoration: BoxDecoration(
                 color: kInactiveCardColor,
                 borderRadius: BorderRadius.circular(16.0),
@@ -72,6 +73,16 @@ class _ResultScreenState extends State<ResultScreen> {
                 child: Column(
                   children: [
                     /// User gender
+                    const Text(
+                      'Your Information',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.w700,
+                        color: kIConColor,
+                      ),
+                    ),
+
+                    /// User gender
                     Text(
                       'Gender: ${widget.userGender}',
                       style: kLabelTextStyle,
@@ -79,19 +90,19 @@ class _ResultScreenState extends State<ResultScreen> {
 
                     /// User age
                     Text(
-                      'Age: ${widget.userAge}',
+                      'Age: ${widget.userAge}years',
                       style: kLabelTextStyle,
                     ),
 
                     /// User height
                     Text(
-                      'Age: ${widget.userAge}',
+                      'Height: ${widget.userHeight}cm',
                       style: kLabelTextStyle,
                     ),
 
                     /// User weight
                     Text(
-                      'Age: ${widget.userAge}',
+                      'Weight: ${widget.userWeight}kg',
                       style: kLabelTextStyle,
                     ),
                   ],
