@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/calculator_screen.dart';
+import 'package:bmi_calculator/screens/calculator_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BMI Calculator',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(backgroundColor: Colors.green),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),

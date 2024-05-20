@@ -11,7 +11,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('BMI Calculator'),
+      ),
       body: const Center(),
     );
   }
