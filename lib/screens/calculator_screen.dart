@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/screens/result_screen.dart';
 import 'package:flutter/material.dart';
 
 class CalculatorScreen extends StatefulWidget {
@@ -12,7 +13,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   // Initial user details
   String userGender = 'Male';
   int userAge = 18;
-  int userHeight = 120;
+  int userHeight = 170;
   int userWeight = 60;
 
   @override
@@ -21,31 +22,19 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       appBar: AppBar(
         title: const Text('BMI Calculator'),
       ),
-      body: ListView(
-        primary: false,
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
-        children: [
-          /// Gender selection panel
-          genderSelectionPanel(),
-
-          /// Add space
-          const SizedBox(height: 16.0),
-
-          /// Height selection panel
-          heightSelectionPanel(),
-
-          /// Add space
-          const SizedBox(height: 16.0),
-
-          /// Weight and Age selection panel
-          weightAndAgeSelectionPanel(),
-
-          /// Add space
-          const SizedBox(height: 16.0),
-
-          /// Reset and Calculate buttons panel
-          resetAndCalculateButtonsPanel(),
-        ],
+        child: Column(
+          children: [
+            Expanded(child: genderSelectionPanel()),
+            const SizedBox(height: 16.0),
+            Expanded(child: heightSelectionPanel()),
+            const SizedBox(height: 16.0),
+            Expanded(child: weightAndAgeSelectionPanel()),
+            const SizedBox(height: 16.0),
+            resetAndCalculateButtonsPanel(),
+          ],
+        ),
       ),
     );
   }
@@ -69,7 +58,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   setState(() {
                     userGender = 'Male';
                     userAge = 18;
-                    userHeight = 120;
+                    userHeight = 170;
                     userWeight = 60;
                   });
                 },
@@ -83,7 +72,23 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             /// Calculate button
             Expanded(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  // Getting the user's BMI value
+                  double userBMIValue = double.parse(
+                      (userWeight / ((userHeight * userHeight) * 0.0001))
+                          .toStringAsFixed(2));
+
+                  // Navigate to the result screen
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResultScreen(
+                          userBMIValue: userBMIValue,
+                          userAge: userAge,
+                          userGender: userGender,
+                        ),
+                      ));
+                },
                 child: const Text('Calculate'),
               ),
             ),
@@ -156,6 +161,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             /// Title
             const Text(
@@ -304,12 +311,20 @@ class WeightAndAgeSelectionButton extends StatelessWidget {
               children: [
                 /// Decrease button
                 IconButton.filledTonal(
+                  style: const ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(kActiveCardColor),
+                    foregroundColor: WidgetStatePropertyAll(kWhiteThemeColor),
+                  ),
                   onPressed: onPressesDecrease,
                   icon: const Icon(Icons.remove_rounded),
                 ),
 
                 /// Increase button
                 IconButton.filledTonal(
+                  style: const ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(kActiveCardColor),
+                    foregroundColor: WidgetStatePropertyAll(kWhiteThemeColor),
+                  ),
                   onPressed: onPressesIncrease,
                   icon: const Icon(Icons.add_rounded),
                 ),

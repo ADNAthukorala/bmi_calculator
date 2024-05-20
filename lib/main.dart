@@ -22,14 +22,6 @@ class MyApp extends StatelessWidget {
           shadowColor: kBlackThemeColor,
         ),
 
-        /// Icon button theme
-        iconButtonTheme: const IconButtonThemeData(
-          style: ButtonStyle(
-            backgroundColor: WidgetStatePropertyAll(kActiveCardColor),
-            foregroundColor: WidgetStatePropertyAll(kWhiteThemeColor),
-          ),
-        ),
-
         /// Elevated button theme
         elevatedButtonTheme: const ElevatedButtonThemeData(
           style: ButtonStyle(
