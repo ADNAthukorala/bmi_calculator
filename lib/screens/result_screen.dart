@@ -127,6 +127,28 @@ class _ResultScreenState extends State<ResultScreen> {
               bmiColor: bmiColor,
               bmiMessage: bmiMessage,
             ),
+
+            /// Add space
+            const SizedBox(height: 16.0),
+
+            /// Logo
+            const Padding(
+              padding: EdgeInsets.only(bottom: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Powered by: ',
+                    style: TextStyle(
+                        color: kWhiteThemeColor, fontWeight: FontWeight.w600),
+                  ),
+                  Image(
+                    image: AssetImage('images/adna-logo-txt.png'),
+                    width: 25,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
