@@ -33,6 +33,9 @@ class MyApp extends StatelessWidget {
 
         /// Body background color
         scaffoldBackgroundColor: kBackgroundColor,
+
+        /// Font
+        fontFamily: 'Roboto',
         colorScheme: ColorScheme.fromSeed(seedColor: kBackgroundColor),
         useMaterial3: true,
       ),
