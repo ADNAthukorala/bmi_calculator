@@ -1,8 +1,13 @@
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/screens/calculator_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   runApp(const MyApp());
 }
 
